@@ -1,8 +1,8 @@
 package it.prova.testdatamigration.model;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -39,9 +39,8 @@ public class UtenteAnagrafico {
 	private UtenteFiscale utenteFiscale;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "utenteAnagrafico")
-	private Set<Sinistro> sinistri = new HashSet<Sinistro>(0);
+	private List<Sinistro> sinistri = new ArrayList<Sinistro>();
 	
-
 	public UtenteAnagrafico() {
 	}
 
@@ -49,7 +48,7 @@ public class UtenteAnagrafico {
 		this.id = id;
 	}
 
-	public UtenteAnagrafico(Long id, String nome, String cognome, Date dataNascita, UtenteFiscale utenteFiscale, Set<Sinistro> sinistri) {
+	public UtenteAnagrafico(Long id, String nome, String cognome, Date dataNascita, UtenteFiscale utenteFiscale, List<Sinistro> sinistri) {
 		this.id = id;
 		this.nome = nome;
 		this.cognome = cognome;
@@ -68,7 +67,7 @@ public class UtenteAnagrafico {
 	
 	
 
-	public UtenteAnagrafico(String nome, String cognome, Date dataNascita, UtenteFiscale utenteFiscale, Set<Sinistro> sinistri) {
+	public UtenteAnagrafico(String nome, String cognome, Date dataNascita, UtenteFiscale utenteFiscale, List<Sinistro> sinistri) {
 		this.nome = nome;
 		this.cognome = cognome;
 		this.dataNascita = dataNascita;
@@ -130,11 +129,11 @@ public class UtenteAnagrafico {
 		this.utenteFiscale = utenteFiscale;
 	}
 
-	public Set<Sinistro> getSinistri() {
+	public List<Sinistro> getSinistri() {
 		return sinistri;
 	}
 
-	public void setSinistri(Set<Sinistro> sinistri) {
+	public void setSinistri(List<Sinistro> sinistri) {
 		this.sinistri = sinistri;
 	}
 }
